@@ -3,13 +3,13 @@ we create divs to create a clock
 
 
 
-<div class='clock'>
-  <div class='clock-face'>
+      <div class='clock'>
+      <div class='clock-face'>
       <div class='hand min-hand'></div>
       <div class='hand second-hand'></div>
       <div class='hand hour-hand'></div>
-    </div>
-    </div>
+      </div>
+     </div>
     
     
     
@@ -50,13 +50,12 @@ This style we use for clock dimesions,width,height,radius all of which we are us
 Then we write the javaScript code for clock Functions.
 
 
+    const seconHand=document.querySelector('.second-hand');
+    const minHand=document.querySelector('.min-hand');
+    const hourHand=document.querySelector('hour-hand');
 
-const seconHand=document.querySelector('.second-hand');
-const minHand=document.querySelector('.min-hand');
-const hourHand=document.querySelector('hour-hand');
 
-
-function newDate(){
+    function newDate(){
 
     const now=new Date();
     const seconds=now.getSeconds();
