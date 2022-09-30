@@ -10,6 +10,9 @@ we create divs to create a clock
       <div class='hand hour-hand'></div>
     </div>
     </div>
+    
+    
+    
     then we style the divs using classnames.
     .clock{
           height:30rem;
