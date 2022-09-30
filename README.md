@@ -31,6 +31,8 @@ we give some values in styles to those
      function handleUpdate(){
            const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
 we can setProperty of name of varibles to value of those variables using
+
+
             document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
             }
                 
