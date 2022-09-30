@@ -1,5 +1,6 @@
 # javaScript-clock
 we create divs to create a clock
+
 <div class='clock'>
   <div class='clock-face'>
       <div class='hand min-hand'></div>
@@ -7,7 +8,10 @@ we create divs to create a clock
       <div class='hand hour-hand'></div>
     </div>
     </div>
+    
     then we style the divs using classnames.
+    
+    
     .clock{
           height:30rem;
           width:30rem;
@@ -38,12 +42,18 @@ we create divs to create a clock
               transform:rotate(90deg);
               transition-timing-function:cubic-bezier(0.75,0.82,0.165,1);
               }
+              
+              
 This style we use for clock dimesions,width,height,radius all of which we are using for Clock dimension.
 Then we write the javaScript code for clock Functions.
+
+
 
 const seconHand=document.querySelector('.second-hand');
 const minHand=document.querySelector('.min-hand');
 const hourHand=document.querySelector('hour-hand');
+
+
 function newDate(){
     const now=new Date();
     const seconds=now.getSeconds();
