@@ -57,6 +57,7 @@ const hourHand=document.querySelector('hour-hand');
 
 
 function newDate(){
+
     const now=new Date();
     const seconds=now.getSeconds();
     const secondDegree=((seconds/60)*360)+90;
