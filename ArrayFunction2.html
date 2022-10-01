@@ -42,11 +42,12 @@
                 console.log(comm);
 
             //delete the comment with th id of 583921
-               // comments.splice(comm,2);
+               // comments.splice(comments,2);
                 //console.table(comments)
 
                 const newComments=[
-                    ...comments.slice(0,comm),
+                    ...comments.slice(0,1),
+                    ...comments.slice(1,comm),
                     ...comments.slice(comm+1)
                 ];
                 console.table(newComments)
