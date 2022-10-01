@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Array1</title>
+    </head>
+    <body>
+        <script>
+           //## Array functions Day1
+           const auditors=[
+            {first:'Albert', last:'Einstein', year:1432, passed:1538},
+            {first:'Isac', last:'Abraham', year:1849,passed:2010},
+            {first:'Galileo', last:'Galilei', year:1564, passed:1743},
+            {first:'Marie', last:'Curie', year:1867, passed:1943},
+            {first:'Nicolaus', last:'Copernicus', year:1784, passed:1943},
+            {first:'Johanes', last:'Kelper', year:1572, passed:1672},
+            {first:'Max', last:'Planck', year:1542, passed:1722},
+           ] ;
+
+           const people=['Beck, Glenn', 'Becker, Carl', 'Backett, Samuel', 
+                'Beddoes, Nick', 'Beacher, Henry', 'Beethven, Ludwig', 'Begin, Mechem', 
+            'Bellaoc, Hilaire', 'Below, Saul', 'Benchley, Robert', 'Benenson, Peter', 
+        'Ben-Gurion, David', 'Benjemen, Walter', 'Benn, Tony', 'Bennigton, Chester', 
+        'Benson, Leana', 'Bent, Silas', 'Bensten, Lloyd', 'Berger, Ric', 'Bergman, Ingmar','Berio, Luciano', 
+        'Berry, Halle', 'Berry, endel', 'Biko, Steve', 'Bilar, Robert', 'Bake, William'];
+
+
+            // ##Array prototype.filter()
+            //1.Filter the list of auditors for those who were born in the 1500's
+            const fifteen=auditors.filter(auditor=>(auditor.year >=1400 && auditor.year <=1900))
+            console.table(fifteen);
+
+            //## Array.proptotype.map()
+            //## 2.Give us an array of the inventory first and last names;
+
+                const fullName=auditors.map(auditor=>( `${auditor.first} ${auditor.last}`) )
+                console.log(fullName);
+
+            //Array.Prototypes.sort()
+            //3.sort the auditors by birthdate, oldest to youngest
+                const birth=auditors.sort((a,b)=>(a.year>b.year ? 1 : -1))
+                console.table(birth);
+
+            //Array.proptotype.reduce()
+            //4.How many years did all the inventors live?
+                const totalYears=auditors.reduce((total,auditor)=>{
+                    return total + (auditor.passed - auditor.year);
+                },0);
+                console.log(totalYears);
+
+            //5.sort the auditors by years lived
+                const older=auditors.sort(function(a,b){
+                    const lastGuy=a.passed-a.year;
+                    const nextGuy=b.passed-b.year;
+                    return lastGuy>nextGuy ? -1 : 1;
+                })
+                console.table(older);
+
+            //6.create a list of Boulevards in paris that contain 'de' anywhere in the name
+            //https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+            /*const category=document.querySelector('.mw-category');
+            const links=Array.from(category.querySelectorAll('a'));
+            const de = links
+                            .map(link=>link.textContent)
+                            .filter(street=>street.includes('de'));*/
+            
+            //7.sort Excercise
+            //sort the people alphabetically by last name
+                const alpha=people.sort((lastOne,nextOne)=>{
+                    const [alast,afirst]=lastOne.split(', ');
+                    const[blast,bfirst]=nextOne.split(', ');
+                    return alast>blast ? 1:-1;
+                })
+                console.log(alpha);
+
+            //8.reduce Excercise
+            //sum up the instances of each of these
+                const data=['car', 'car', 'truck', 'truck', 'bike','walk', 'car', 'car', 'bike', 'card',
+                                'van', 'van', 'bus'];
+                const transpoort=data.reduce(function(obj, item){
+                    if(!obj[item]){
+                        obj[item]=0;
+                    }
+                    obj[item]++;
+                    return obj;
+                    },{})
+                    console.log(transpoort);
+        </script>   
+    </body>
+</html>
