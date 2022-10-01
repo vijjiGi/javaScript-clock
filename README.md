@@ -1,5 +1,7 @@
 In this program we show the functions of Array
 Those are filter,map,sort,reduce.For check these functions we create two constant classes like "Auditors","people".
+
+
 Array.Filter().this function use to konw the auditors who are born in 1400.For these we Filter the auditor class.to know this we create a constant fourteen
 
             const fourteen=auditors.filter(auditor=>(auditor.year>=1400 &&                                        auditor.year<=1900))
