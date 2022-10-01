@@ -1,28 +1,31 @@
-In this Program we learning about the clock directions,and how it works.
-
-minsHand.style.transform= `rotate(${minDegree)deg}`;
-
-In this statement we assign the directions,transformation to minuteHand.For that we create a function called newDate();.
-      
-      {const now=new Date();}
-Firstly we create a constant which is define the Date.It will show the what time,date is now.
-       
-
-     const mins=now.getMinutes();.
-Then we get the minutes value from new Date().
-
-     {const minDegree=((mins/60)*360)+90}.
-Then we change and know the direction of minute-hand,for that we create a constant to know it is          
-
-    {const minsHand=document.querySelector('.min-hand')}.
-To know the changes in directions of minute-hand we style the minuteHand.For the firstly we create a constant to know the minute-hand value.
-
-With this we know the minuitValue and direction changes of minut-hand.
-
-This process is work seconds and hours also..
-      secondsHand.style.transform=`rotate(${minDegree}deg)`;
-      hourHand.style.transform=`rotate(${hourHand}deg)`;
+In this program we show the functions of Array
+Those are filter,map,sort,reduce.For check these functions we create two constant classes like "Auditors","people".
 
 
+Array.Filter().this function use to konw the auditors who are born in 1400.For these we Filter the auditor class.to know this we create a constant fourteen
+
+            const fourteen=auditors.filter(auditor=>(auditor.year>=1400 &&                                        auditor.year<=1900))
+
+Array.map().this functon used for mapping the attributes and give them what we want.we want to know the first and lastName of the auditor,
+
+            const fullName=auditors.map(auditor=>(`${auditor.first} ${auditor.last}`))
+     
+Array.Sort().this function used for sortOut the auditors class and display what we want.
+
+##First we know the auditors birthDate which come to oldest to youngest.to know that we use objects like a,b.
+
+            const birth=auditors.sort((a,b)=>(a.year>b.year ? 1 : -1))
+            
+Array.reduce().this function used for reducing the attributes or combining what we want.
+      to know the years of did all the auditors live
+            
+            const totalYears=auditors.reduce((total,auditor)={
+               return total+(auditor.passed-auditor.year);
+               ),0}
+               
+               
+   
+            
+            
           
     
