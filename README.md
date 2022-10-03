@@ -1,38 +1,41 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
-
-
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
+In this Images.html program we make some interesting functions like increase font-size,flex like that
+firstly We take some images and add some lines on them then we make them some fnctions.
+In this program we use a css event called flex.
+         
+         display:flex;
+         align-items:center;
+         justify-content: center;
+         flex:1;
+         
+ To make increment of flex value we create a sepecial class css.
  
+           .panel.open{
+                flex:5;
+                font-size:40px;
+       
+to make this valuable we add some JavaScriptcode.For this we create a consonant class to track the images.
+
+               const pannels= document.querySelector('.panel');.
+               
+to make flex increment 
+               
+               panel.forEach(panel=>panel.addEventListener('click',toggleOpen))
+               
+               function toggleOpen(e){
+                          this.classList.toggle('open');
+                          
+                          
+ To make data invisibel and visuable to add some css data.
  
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
-                
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+                .panel > *:first-child(transform:translatey(-100%);} For invisible
+                .panel.open-active > *:first-child(transform:translatey(0);} for visible
+                It is also for last-child and differnece is 100%,0.
+                              
+To make data invicible and when we click the image then show the data on image.
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+                 panel.forEach(panel=>panel.addEventListner('transitionend',toogleActive));
+                 
+                 function toggleActive(e){
+                                if(e.propertyName.includes('flex')){
+                                this.classList.toggle('open-active');
+                                }
