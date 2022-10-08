@@ -1,38 +1,47 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we access some cities,states information from link.
+And then we access that information from link to json.
+
+        
+         let cities=[];
+         fetch(endpoint)
+         .then(blob=>blob.json())
+         .then(data=>cities.push(...data))
 
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
+In this we access the data of the link toinderstandable view using json.and add the information to  class called"data".
+We access the information using classes with querySelsctor,and classes are search,suggestions.and store them in a constant called serachInput,suggestion.
+
+        const searchInput=document.querySelector('.search');
+        const suggestions=document.querySelector('.sugggestions');
+        
+And then we use some keyBoard functions like 'change','keyup'.
+
+        searchInput.addEventListener('change',displayMatches);in this displayMatches is a function.
+        
+        function displayMatches(){
+        const matchArray=findMatches(this.value,cities);
+        const html=matchArray.map(place=>{
+                const regex=new RegExp(this.value,'gi');
+                const cityName=place.city.replace(regex,`<span class='h1'>${this.value}</span>`);
+                const stateName=pllacce.state.replace(regex,`<span class='h1>${this.value}</span>`);
+                return `
+                        <li>
+                                <span class='name'>${cityName}, ${stateName}</span>
+                                <span class='population'>${numberWithCommas(place.population)}</span>
+                                </li> }).join(' ');
+                                suggestions.innerHtml=html; }
+                                
+ In the displayMatches function we have another function to find the matches cities,states called findMatches() and another function called numberWithCommas
  
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
+        function findMatches(wordToMatch,cities){
+                 return cities.filter(place=>{
+                        const regex=new RegExp(wordToMatch,'gi');
+                        return place.city.match(regex) || place.state.match(regex) });
+                       
+          function numberWithCommas(x){
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','); }
                 
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
-
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+  In the input column we enter some place name then it display the matching places cities or states.
+          
+                        
+        
