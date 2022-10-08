@@ -14,7 +14,7 @@ We access the information using classes with querySelsctor,and classes are searc
         const searchInput=document.querySelector('.search');
         const suggestions=document.querySelector('.sugggestions');
         
-And then we use some keyBoard functions like 'change','keyup'.
+And then we use some mouse Events like 'change','keyup'.
 
         searchInput.addEventListener('change',displayMatches);in this displayMatches is a function.
         
