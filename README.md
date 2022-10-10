@@ -1,38 +1,58 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this Program we create print like what we want to draw on screen
+For this we create two constants called 'canvas','ctx'.
 
+      use These we manage the screen line and width
+                canvas.length=window.innerlength;
+                canvas.width=widows.innerWidth;
+        
+        and some designs to help to draw are
+        
+                ctx.strokeStyle='#BADA55';
+                ctx.linejoin='round';
+                ctx.linecap='round';
+                ctx.lineWdth=100;
+For drawing we manage some outfits like isDrawing,lastX,lastY,hue,direction and give them some values false,0,0,0,true.
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
+For this functioning we use mouseEvent mousedown,mousemove,mouseup,mouseout.
+we add to canvas addEventListener();in this a function define 
+
+        isDrawing=true;
+        [lastX,lastY]=[e.offsetX,e.offsetY];
+        
+        
+this mouse event we access in a function called draw.
+
+        function draw(e){->in this function we check some conditions to show as we like.
+        
+                if(!isDrawing)return
+                console.log(e);
+                ctx.strokeStyle=`hsl(${hue},100%,50%)`;
+                ctx.beginPath();->start
+                ctx.moveTo(lastX,lastY);->go to
+                ctx.lineTo(e.offsetX,e.offsetY);
+                ctx.stroke();
+                [lastX,lastY]=[e.offsetX,e.offsetY];
+                hue++
                 
+              then we chheck the hue and line width,length values.
+                if(hue>=360){
+                    hue=0;
+                    }
+                 if(ctx.lineWidth=100||ctx.lineWidth<=1){
+                        direction=!direction
+                        }
+                  if(direction){
+                        ctx.linelength++;
+                        }else{
+                        ctx.linelength--;
+                        }}
+                        
+In this function we add the mouseEvent also to functioning the drawing.
+                        
+                        
+             
                 
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+                    
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
+        
                 
