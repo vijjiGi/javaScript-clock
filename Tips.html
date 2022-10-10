@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="'en">
     <head>
-        <meta charset="UTF-8">
-        <title>Canvas</title>
+    <meta charset="UTF-8">
+    <title>Tips</title>
     </head>
     <body>
-        <canvas id="draw" width="800" height="800"></canvas>
+        <p onclick="makeGreen()">xBREAKxDOWN</p>
+
         <script>
-            const canvas=document.querySelector('#draw');
-            const ctx=canvas.getContext('2d');
+            const cats=[{name:'snoopy',age:12},{name:'husky',age:15}];
 
-            canvas.width=window.innerWidth;
-            canvas.lenght=window.innerlength;
-
-            ctx.strokeStyle='#BADA55';
-            ctx.linejoin='round';
-            ctx.lineCap='round';
-            ctx.lineWidth=100;
-            //ctx.globalCompositeOperation='multiply';
-
-            let isDrawing=false;
-            let lastX=0;
-            let lastY=0;
-            let hue=0;
-            let direction=true;
-
-            function draw(e){
-                if(!isDrawing)return 
-                console.log(e);
-                ctx.strokeStyle=`hsl(${hue},100%,50%)`;
-                ctx.beginPath();
-                //start
-                ctx.moveTo(lastX,lastY);
-                //go to
-                ctx.lineTo(e.offsetX,e.offsetY);
-                ctx.stroke();
-                [lastX,lastY]=[e.offsetX,e.offsetY];
-                hue++;
-                if(hue>=360){
-                    hue=0;
-                }
-                if(ctx.lineWidth>=100||ctx.lineWidth<=1){
-                    direction= !direction;
-                }
-                if(direction){
-                    ctx.lineWidth++;
-                }else{
-                ctx.lineWidth--;
-                }
+            function makeGreen(){
+                const p=document.querySelector('p');
+                p.style.color='#BADA55';
+                p.style.fontsize='50px';
             }
-        canvas.addEventListener('mousedown',(e)=>{
-            isDrawing=true;
-            [lastX,lastY]=[e.offsetX,e.offsetY];
-        });
 
-        canvas.addEventListener('mousemove',draw);
-        canvas.addEventListener('mouseup',()=>isDrawing=false);
-        canvas.addEventListener('mouseout',()=>isDrawing=false);
+
+        //Regular
+        console.log('hello');
+
+        //Interpolated
+        console.log('i am siri %s','@');
+
+        //styled
+            console.log('%c I am doing assignments','font-size:20px;color:red;background-color:blue')
+        //warning
+            console.warn('this is illegal!')
+        //Error:!
+            console.error('this is wrong')
+        //Info
+            console.info('cocks are no flyers 2-3 birds are fly');
+
+        //Testing
+            const p=document.querySelector('p');
+            console.assert(p.classList.contains('huge'),'this is wrong');
+       
+        //clearing
+            console.clear();
+            
+
+        //viewing DOM Elements
+            console.log(p);
+            console.dir(p);
+
+        //Grouping together
+            cats.forEach(cat=>{
+                console.groupCollapsed(`${cat.name}`)
+                console.log(`this is ${cat.name}`);
+                console.log(`${cat.name}age is ${cat.age} `)
+                console.groupEnd(`${cat.name}`)
+            })
+        
+        //counting
+            console.count('hi');
+            console.count('hi');
+            console.count('hi');
+            console.count('hi');
+            console.count('baby');
+            console.count('baby');
+            console.count('baby');
+            console.count('baby');
+            console.count('baby');
+            console.count('baby');
+
+        //timing
+            console.time('fetching data')
+            fetch('https://api.github.com/users/wesbos')
+            .then(data=>data.json())
+            .then(data=>{
+                console.timeEnd('fetching data')
+                console.log(data)
+            })
 
         </script>
-        <style>
-            html,body{
-                margin:0;
-            }
-        </style>
     </body>
 </html>
