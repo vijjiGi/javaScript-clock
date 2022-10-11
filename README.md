@@ -1,38 +1,34 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we create a program to make checcked between two checked checkboxes.
+For this we create two variables called lastChecked,inBetween
+For this we create a constant called checkboxes
 
-
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
+        const checkboxes=document.querySelectorAll('.inbox input[type="checkbox"]');
+        
+ To show the checked boxes we have a mouseEvent called 'click'.
  
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
-                
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+        checkboxes.forEach(checkbox=>checkbox.addEventListener('click',handleCheck));
+        
+  Then we fullfill the function handleCheck
+        function handleCheck(e){
+                let inBetween=false;
+            /*then check if they have shift key AND check if they checked*/
+                if(e.shiftKey && this.checked){
+                        checkboxes.forEach(checkbox=>{
+                                        console.log(checkbox);
+               /*Then we checked the checkbox and last checked box*/
+                                     if(checkbox===this || chackbox===lastCheked){
+                                              inBetween=!inBetween;
+                                              console.log('checked between them');
+                                           }
+                  /*then if inBetween them are true then clicked them automatically.
+                                       if(inBetween){
+                                               checkbox.checked=true;
+                                               }
+                                               
+                                       })
+                                       }
+                                       lastChecked=this;
+                                     }
+this will show the first and last checked boxes and between them checkboxes
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+        
