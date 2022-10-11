@@ -1,38 +1,22 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we add some properites to screen when we press a specific word what we are create.
 
+For this we create an array and a constant
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
-                
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+        const pressed=[];
+        const secret='ing';->when we enter this word on screen it will show some magic.
+        
+Then to show the magic we create an eventListener
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+        window.addEventListener('keyup',(e)=>{
+             console.log(e.key);
+             pressed.push(e.key);->everyTime we pushing the keys they store in the pressed array.
+             pressed.splice(-secret.length-1,pressed.length-secret.length);->divide the with secret 
+                                                                                length
+              if(pressed.join('').includes(secret)){
+                        console.log('tring tring');->when we press the secret word it will display
+                        cornify_add();->it will show the magic;
+                    }
+                    console.log(pressed);
+                    })
+                    
+ Then we can see the magic
