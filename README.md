@@ -9,6 +9,7 @@ For this we create a constant called checkboxes
         checkboxes.forEach(checkbox=>checkbox.addEventListener('click',handleCheck));
         
   Then we fullfill the function handleCheck
+       
         function handleCheck(e){
                 let inBetween=false;
             /*then check if they have shift key AND check if they checked*/
