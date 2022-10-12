@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <title>Sorting Band Names </title>
+    </head>
+    <body>
+
+        <style>
+            html{
+                background-color:beige;
+                align-items: center;
+                justify-content: center;
+                display:flex;
+                flex-direction:inherit;
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJJz2pZNuDNyxAEgULHunXqntmrsB9haguQ&usqp=CAU');
+            }
+            #bands{
+                background-color: white;
+                align-items: center;
+                justify-content: center;
+                min-height:1rem;
+                max-width: 10rem;
+                text-align: justify;
+
+            }
+
+        </style>
+
+        <ul id="bands"></ul>
+
+        <script>
+
+            const bands=['The plat in you', 'The Devil Wares Prada', 'Peerce the veil', 'Norma Jean', 
+                             'The Bled', 'Say Anything', 'An Apple', 'The moutain', 'Counterpears', 'An encounter'
+                             ,'A biggest', 'An umbrella'];
+             function strip(bandName){
+                return bandName.replace(/^(a |the |an )/i, '').trim();
+             }
+
+            const sortedBands=bands.sort((a,b)=>strip(a) > strip(b) ? 1 : -1);
+            console.log(sortedBands)
+            
+             document.querySelector('#bands').innerHTML=sortedBands
+                            .map(band=>`<li>${band}</li>`)
+                            .join('');
+        </script>
+    </body>
+</html>
