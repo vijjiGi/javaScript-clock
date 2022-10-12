@@ -1,38 +1,32 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we have some videos and thier timevallue.we have know the time value of all videos in hours,mins,seconds
+For this we use the reduce function to know the time value.
+Firstly we access the time values of all videos and combine them.
+        
+        const timeNodes=Array.from(document.querySelectorAll('[data-time]'));
+       
+In this constnat we access all the time values in an array from nodeList.
+then convert minutes to seconds with use of map function.
 
+        const seconds=timeNodes.map(node=>node.dataset.time)
+                               .map(timeCode=>{
+                                        const[mins,secs]=timeCode.split(':').map(parseFloat);
+                                        return (mins*60)+secs;
+                                       })->It will give the time value in seconds.
+                                       
+Then we add the all seconds with the help of reduce function.
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
-                
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+                                 .reduce((total, videSeconds)=>total+videSeconds);
+                                 
+                                 
+Then we know the time value in HOURS,MINUTES,SECONDS format.
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+        let secondLeft=seconds;
+        const hours=Math.floor(secondsLeft/3600);->floor value show the accurate Hours value
+        secondsLeft=secondsLeft%3600->It will show the minutes with seconds also
+        
+        const mins=Math.floor(secondsLefft/60);->it will show the accurate minutes
+        secondsLeft=secondsLeft%60;->It will show seconds value
+        
+        console.log(hours, mis, secondsLeft);
+        
+It will show the HOURS,MINUTES,SECONDS value the all videos time..
