@@ -1,38 +1,43 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we can add images to paragraphs.And when we scroll the page images are add to the pages where we store them.
+For this we want paragrapghs and images with classes names are 'align-left slide-in','align-right slide-in','active slide-in', 
+All images have a same classname called slide-in.
+Then we access a function called debounce();It is used for set the timing to run the data
 
-
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
+        function debounce(func,wait=50,immediate=true){
+                 var timeout;
+                 return function(){
+                        var context=this, args=arguments->for this we create two variables..another                                                                       variable with function is 'later'
+                        var later=function(){
+                                timeout=null;
+                                if(!immediate) func.apply(context,args);
+                                }
+                         var callNow=immediate && !timeout;
+                                clearTimeout(timeout);
+                                timeout=setTimeout(later,wait);
+                                if(callNow) func.apply(context,args);
+                                }
+                                };
+This function we can use as with eventListener
+                window.addEventListener('scroll',debounce(checkSlide));
                 
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+Then we implement the checkSlide()
 
+                function checkSlide(e){
+                        sliderImages=forEach(sliderImage=>{
+                                const sliderInAt=(window.sccrollY+window.innerHeight)-                                                                                  sliderImage.height/2;
+                       /*halfway through the image*/
+                                  const imageBottom=sliderImage.offsetTop+sliderImage.height;
+                       /*bottom of the Image*/
+                                   const isHalfShown=sliderInAt>sliderImage.offsetTop;
+                                   const isNotScrolledPast=window.srollY<imageBottom;
+                                   
+                               if(isHalfShown && isNotScrolledPast){
+                                        sliderImage.classList.add('active');
+                                     }else{
+                                          sliderImage.classList.remove('active');
+                                          }
+                                          })
+                                          }
+                                   
 
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+        
