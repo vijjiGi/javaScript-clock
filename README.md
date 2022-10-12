@@ -1,38 +1,17 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we sort the Array values in alphabetc order and place on the screen in list items
+First we create an with some words with staring an,the,a.
+Firstlywe sortout and display with alphabetcal order with sort function
 
+        const sortedBands=bands.sort((a,b)=>strip(a)>strip(b) ? 1 : -1);
+        
+In this we sortout the values in alphabetcally and avoid the an,the,a with help of strip function
+Then we implement the strip funtion
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
+        function strip(bandName){
+                return bandName.replace(/^(a |the |an )/i, '').trim();
                 
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+Lastly we add the array items to list on screen
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+        document.querySelector('#bands').innerHtml=sortedBands
+                        .map(band=>`<li>${band}</li>`)
+                        .join('');
