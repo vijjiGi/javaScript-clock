@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reference or copy JS</title>
+    </head>
+    <body>
+
+        <script>
+            window.addEventListener('keyup',(e)=>{
+                cornify_add();
+                console.log(e)
+            })
+            
+        //start with strings numbers and booleans
+
+         /*   let a=100;
+            var b=a;
+           // console.log(a,b);
+            var b=34;
+            //console.log(a,b);
+        //let check arrays
+            let vir=['sir','big','vig'];
+            var bag=vir;
+           // console.log(bag)
+            bag[3]=('gig');
+            //console.log(bag)
+            //console.log(vir)
+        //copy with slice operator
+            var bag1=bag.slice();
+            bag1[4]='fan';
+            console.log(bag1);
+        //copy with cocate function
+            var nag=[].concat(vir);
+            nag[4]='van';
+            console.log(nag);
+        //copy with spread operator
+            var nag1=[...vir];
+            nag1[4]='hi hlo';
+            console.log(nag1);
+        //copy with from function
+            var hig=Array.from(vir);
+            hig[4]='vok';
+            console.log(hig);*/
+
+            const person={
+                name:'bag',
+                age:50
+            };
+        //console.log(person);
+            const cap=person;
+            cap.number=66;
+        //console.log(cap);
+            const cap1=Object.assign({},person,{number:55});
+        //console.log(cap1);
+        //we cant use spread operator with objects...
+        //things to Note-this is only 1 level deep-both for arrays
+        //and objects.loadash has a clonedDeep method,but you should think twice before using it.
+
+            const fin={name:'gig',num:45,dig:{vir:'hi',hig:'hlo'}}
+            console.log(fin) 
+            const wes=Object.assign({},fin);
+            console.log(wes);
+            wes.dig.vir='hey';
+            console.log(wes.dig)
+            console.log(fin.dig)
+
+        //to copy the next level 
+            const wesi=JSON.parse(JSON.stringify(wes));
+            wesi.dig.hig='wow';
+            console.log(wesi.dig);
+            JSON.stringify(wes)
+            console.log(wes.dig)
+
+        </script>
+    </body>
+</html>
