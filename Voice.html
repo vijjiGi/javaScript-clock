@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Voice</title>
+    </head>
+    <body>
+        <script type="text/javascript" id="_bs_notify_">            
+        </script>
+        <script async src=" this.device"></script>
+        <div class="words" contenteditable>
+
+        </div>
+        <script>
+            window.SpeechRecognition=window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            const recognition=new SpeechRecognition();
+            recognition.interimResults=true;
+
+            let p=document.createElement('p');
+            const words=document.querySelector('.words');
+            words.appendChild(p);
+
+            recognition.addEventListener('result',e=>{
+                console.log(e);
+            })
+
+        </script>
+        <style>
+            html{
+                font-size:10px;
+            }
+            body{
+                background:#fe2;
+                font-family: 'helvetica neue';
+                font-weight:200;
+                font-size:20px;
+            }
+            .words{
+                font-size:12;
+                background:white;
+            }
+            p{
+                font-size: 10px;;
+            }
+        </style>
+    </body>
+</html>
