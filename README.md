@@ -1,38 +1,40 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we do speech recognition and place that speech on screen.
+For this we use our system micrphone and give permision to that..
+Lets start..
+        
+          window.SpeechRecognition=window.SpeecchRecognition || wnidow.webkitSpeechRecognition;
+      
+In this we do the recognition from our system,or web which we are using with microphone.
 
+        const recognition=new SpeechRecognition();
+        recognition.interimResults=true;
+        
+recognition is store the recognised data
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
+        let p=document.createElement('p');
+        const words=document.querySelector('.words');
+        words.appendChild(p);
+        
+Then add the data to paragraph..
+
+        recognition.addEventListener('result',e=>{
+                        const transcript=Array.from(e.results)
+                        .map(result=>result[0])
+                        .map(result=>result.transcript)
+                        .join('')
+                        
+Then add the recognized data on the screen..
+
+        p.textContent=transcript;
+        if(e.results[0].isFinal){
+                p=document.createElement('p');
+                words.appendChild(p);
                 }
                 
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
-
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+             console.log(transcript)
+             });
+             
+        recognition.addEventListener('end',recognition,start);
+        recognition.start();
+        
+        
