@@ -37,4 +37,4 @@ Then add the recognized data on the screen..
         recognition.addEventListener('end',recognition,start);
         recognition.start();
         
-        
+ when we talk with gap then a new paragraph is made automatically..
