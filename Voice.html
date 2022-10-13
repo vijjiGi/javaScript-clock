@@ -7,7 +7,7 @@
     <body>
         <script type="text/javascript" id="_bs_notify_">            
         </script>
-        <script async src=" this.device"></script>
+        <script async src="http://127.0.0.1:5500/Voice.html"></script>
         <div class="words" contenteditable>
 
         </div>
@@ -22,26 +22,46 @@
             words.appendChild(p);
 
             recognition.addEventListener('result',e=>{
-                console.log(e);
-            })
+                const transcript=Array.from(e.results)
+                .map(result=>result[0])
+                .map(result=>result.transcript)
+                .join('')
 
+                p.textContent=transcript;
+                if(e.results[0].isFinal){
+                    p=document.createElement('p');
+                    words.appendChild(p);
+                }
+               
+                console.log(transcript)
+            });
+
+            recognition.addEventListener('end',recognition.start);
+            recognition.start();
         </script>
         <style>
             html{
                 font-size:10px;
             }
             body{
-                background:#fe2;
+                background:pink;
                 font-family: 'helvetica neue';
                 font-weight:200;
                 font-size:20px;
             }
             .words{
-                font-size:12;
+                font-size:500;
+                font-weight: 200;
                 background:white;
+                text-shadow: 1;
             }
             p{
                 font-size: 10px;;
+            }
+            #_bs_notify_{
+                padding:20px;
+                background-color: aliceblue;
+                text-decoration: solid;
             }
         </style>
     </body>
