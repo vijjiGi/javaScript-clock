@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>webCamp</title>
+        <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    </head>
+    <body>
+        <style>
+            html,body{
+                background-color:#fefefe;
+            }
+            .photobooth{
+                background-color:pink;
+                font-size:9;
+                font-family:'arial balck';
+                display:flexbox;
+            }
+            .controls{
+                font-size:15px;
+                background-color:bisque;
+                display:flexbox;
+            }
+            .photo{
+                display:flexbox;
+                color:aliceblue;
+                padding:10px;
+                background-color: antiquewhite;
+            }
+            .player{
+                padding:20px;
+                min-width:30mm;
+                min-height:auto;
+                background-color:blanchedalmond;
+                animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            }
+            .strip{
+                padding:10px;
+                color:#fefefe;
+                background-color:black;
+            }
+        </style>
+        
+        <div class="photobooth">
+            <div class="controls">
+                <button onclick="takePhoto()">Take photo</button>
+                <div class="rgb">
+                    <label for="rmin">Red Min:</label>
+                    <input type="range" min=0 max=255 name='rmin'>
+                    <label for="rmax">Red Max:</label>
+                    <input type="range" min=0 max=255 name="rmax">
+
+                    <br>
+
+                    <label for="gmin">Green Min:</label>
+                    <input type="range" min=0 max=255 name="gmax">
+                    <label type="gmax">Green Max</label>
+                    <input type="range" min=0 max=255 name="rmax">
+
+                    <br>
+
+                    <label for="bmin">Blue Min:</label>
+                    <input type="range" min=0 max=255 name="bmin">
+                    <label for="bmax">Blue Max:</label>
+                    <input type="range" min=0 max=255 name="bmax">
+                </div>
+            </div>
+            <br>
+            <canvas class="photo"></canvas><br>
+            <video class="player"></video><br>
+            <div class="strip"></div>
+        </div>
+
+        <audio class="snap" src="http://127.0.0.1:5500/webcamp.html" hidden></audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>
