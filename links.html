@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>links</title>
+    </head>
+    <body>
+        <style>
+            html{
+            }
+            *,*:before, *:after{
+                box-sizing: inherit;
+            }
+            body{
+                min-height: 200vh;
+                margin:0;
+                font-family: sans-serif;
+                background:linear-gradient(45deg,hsla(340, 100%, 55%, 1)0%,hsla(340, 100%, 55%, 0)70%),
+                           linear-gradient(135deg,hsla(225, 95%, 50%, 1)10%,hsla(255, 95%, 50%, 0)80%),
+                           linear-gradient(225deg,hsla(140, 90%, 50%, 1)10%,hsla(140, 90%, 50%, 0)80%),
+                           linear-gradient(315deg,hsla(35, 95%, 55%, 1)100%,hsla(35, 90%, 55%, 0)70%);
+            }
+            .wrapper{
+                margin:0 auto;
+                max-width: 500px;
+                font-size: 20px;
+                line-height: 2;
+                position:relative;
+            }
+            a{
+                text-decoration: none;
+                color:black;
+                background: rgba(0,0,0,0.05);
+                border-radius:50px;
+            }
+            .highlight{
+                transition: all 0.2s;
+                border-bottom: 2px solid white;
+                position: absolute;
+                top:0;
+                background:white;
+                left:0;
+                z-index:-1;
+                border-radius: 20px;
+                display:block;
+                box-shadow:0 0 10px rgba(0,0,0,0.2);
+            }
+            .menu{
+                padding:0;
+                margin:0;
+                display:flex;
+                list-style: none;
+                justify-content: center;
+                margin:100px 0;
+            }
+            .menu a{
+                display:inline-block;
+                padding:5px;
+                margin:0 20px;
+                color:black;
+            }
+        </style>
+
+        <nav class="menu">
+            <ul class="menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Status</a></li>
+                <li><a href="">Maintainence</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact us</a></li>
+                <li><a href="">FAQ?</a></li>
+            </ul>
+        </nav>
+
+        <div class="wrapper">
+            <p>Lorem Ipsum is simply dummy text of the,<a href="">Home</a> printing
+             and typesetting industry. Lorem Ipsum has been,<a href="">Wonder</a> the
+             industry's standard dummy text ever since<a href="">Year of</a> the 1500s,
+             when an unknown printer took a <a href="">Game</a> galley of type and <a href="">Bye</a>
+             scrambled it to <a href="">enjoy</a> make a type specimen book. 
+             </p>
+             <p>It has survived not only <a href="">Have</a> five centuries, 
+                but also the leap into <a href="">World</a> electronic typesetting, 
+                remaining essentially unchanged. It was popularised <a href="">Man</a>
+                 in the <a href="">Word</a> 1960s with the release <a href="">Bank</a> of Letraset
+                 sheets containing <a href="">Love</a> Lorem Ipsum passages, and more <a href="">Than</a>
+                 recently with desktop publishing software <a href="">Popular</a>like Aldus
+                 PageMaker including versions of Lorem Ipsum.</p>
+            <p>Lorem ipsum dolor sit amet,<a href="">Beauty</a> consectetur adipiscing
+                elit, sed do eiusmod tempor <a href="">India</a> incididunt ut labore et dolore
+                magna aliqua. Ut enim <a href="">Nijam</a> ad minim veniam, quis nostrud exercitation
+                 ullamco laboris nisi ut aliquip ex ea commodo <a href="">Java</a> consequat.
+            </p>
+            <p> Duis aute <a href="">Begin</a> irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla <a href="">With</a> pariatur. Excepteur sint occaecat
+                cupidatat <a href="">Avoid</a> non proident, sunt in culpa qui officia deserunt mollit anim id 
+                <a href="">About</a>est laborum</p>
+        </div>
+        <script>
+
+            const triggers=document.querySelectorAll('a');
+            const highlight=document.createElement('span');
+            highlight.classList.add('highlight');
+            document.body.append(highlight);
+
+            function highlightLink(){
+                const linkCoords=this.getBoundingClientRect();
+                console.log(linkCoords);
+                const cords={
+                    width:linkCoords.width,
+                    height:linkCoords.height,
+                    top:linkCoords.top+window.scrollY,
+                    left:linkCoords.left+window.scrollX,
+                };
+                highlight.style.width=`${cords.width}px`;
+                highlight.style.height=`${cords.height}px`;
+                highlight.style.transform=`translate(${cords.left}px,${cords.top}px)`;
+            }
+
+            triggers.forEach(a=>a.addEventListener('mouseenter',highlightLink))
+
+        </script>
+    </body>
+</html>
