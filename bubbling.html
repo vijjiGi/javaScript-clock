@@ -41,11 +41,12 @@
 
             function logText(e){
                 console.log(this.classList.value);
-                //e.stopPropagation();
+               // e.stopPropagation();
+             // e.Propagation();
             }
             divs.forEach(div=>div.addEventListener('click',logText,{
                 capture:false,
-                once:true
+                once:false,propagation:true
             }));
             button.addEventListener('click',()=>{
                 console.log('click!!!!!');
