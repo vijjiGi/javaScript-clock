@@ -1,38 +1,42 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we are learning about Bubblibg, propagation,capturing
 
+Bubbling:
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
- 
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
+For thid we create three divs with diff colors..Then check the bubbling
+Fot that we access the divs and add an evnetListener to check if click them what willl display.
+
+        const divs=document.querySelectorAll('div');
+        
+        div.forEach(div=>div.addEventListener('click',logText);
+        
+        function logText(){
+                console.log(this.classList.value);
+                
                 }
                 
+ Then we click on third div it will display three,two,one...it is called bubbling we can access the all 
+ the divs what we can touch
+ 
+ propagation:
+ 
+ Propagation means it will display the divs bottom to top(three,two,one).
+ 
+ Capture:
+ 
+ when propagation false and capture true then display one,two,three(top to bottom)..
+        
+        function logText(e){
+                console.log(this.classList.value);
+                //e.stopPropagation();
+                }
                 
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+        div.forEach(div=>div.addEventListener('click',logText,{capture:true});
+        
+Another property in evenListener is once..
 
+Once:
 
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+         div.forEach(div=>div.addEventListener('click',logText,{capture:true},{once:true});
+
+Then when we click it will display result only one time.. 
+     
