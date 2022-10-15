@@ -1,38 +1,40 @@
-In this program we can change the values of color,border spacing,image bluring
-we are using css variables those are spacing,base,blur.
-we give some values in styles to those
+In this program we create a nav and when we scroll the screen we set that nav stable and highlight a logo
+what is hidden
+For this we add screen an image some text area and the nav we add some hyperLinks..
+And give them some styles to look beautifull and the logo we hidden that to when we scroll we can see that 
+log..
 
+we give nav "id=main" and logo "class=logo" and div "class=site-wrap" and the middle of the text we add 
+some images..
+Then we write a program for that..
 
-        :root{
-                  --base:#ffc600;{-- is used to point them as variables}
-                  --spacing:10px;
-                  --blur:50px;}
-                  
-                  
- we assigning these variables to image and text values.
+        const nav=document.querySelector('#main');
+        const topOfNav=nav.offsetTop;
+        
+ Then we add an EventListener for screen and implement the function
  
- 
-          img{
-                padding:var(--spacing);
-                background:var(--base);
-                filter:blur(var(--blur));}
-            .h2{
-                  color:var(--base);}
-                }
-                
-                
- we change the values of variables using JavaScript function.
- we can change the input values using
-           
-           inputs.forEach(input=>input.addEventLisstner('change',handleUpdate));
- handleUpdate is a function define the changes.
-     
-     
-     function handleUpdate(){
-           const suffix=this.dataset.sizing || "";.in this statement we create a const suffix to describe the dataset values.
-we can setProperty of name of varibles to value of those variables using
+         window.addEvenetListener('scroll',fixNav);
+         
+         function fixNav(){
+                if(winodw.scrollY>=offsetTop){
+                        document.body.style.paddingTop=nav.offsetHeight+'px';
+                        document.body.classlist.add('fixed-nav');
+                   }else{
+                        document.body,style.paddingTop=0;
+                        document.body.classList.remove('fixed-nav');
+                      }
+                      
+And we add some style for fixed-nav
 
-
-            document.documentElement.style.setProperty(`--${tis.name}`,this.value+suffix)
-            }
-                
+                .fixed-nav .site-wrap{
+                        transform:scale(1);
+                        }
+                  .fixed-nav nav{
+                        poosition:fixed;
+                        box-shadow:0 5px rgba(0,0,0,0.1);
+                  }
+                  .fixed-nav li.logo{
+                        max-width:500px;
+                        }
+                        
+Then we see the logo when we scroll the screen..
