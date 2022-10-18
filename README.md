@@ -57,6 +57,7 @@ To know the ending of the time we create a function called displayEndTime()
                                  
 
 After that we have to add the buttons evnets
+
                 buttons.forEach(button=>button.addEventListener('click',startTimer);
                 
                         function startTimer(){
@@ -65,6 +66,7 @@ After that we have to add the buttons evnets
                                 }
                                 
 And then we add the text time functioning
+
                 document.customForm.addEventListener('submit',function(e){
                                 e.preventDefault();
                                 const mins=this.minutes.value;
